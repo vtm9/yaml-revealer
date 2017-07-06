@@ -33,7 +33,7 @@ function! AddParentKeys()
 endfunction
 
 function! GetTreeStructure(inputLine)
-    if &filetype != 'yaml'
+    if &filetype != 'eruby.yaml'
         echo 'This is not a Yaml file.'
         return 0
     endif
@@ -64,7 +64,7 @@ function! KeyNotFound(keyName)
 endfunction
 
 function! SearchYamlKey()
-    if &filetype != 'yaml'
+    if &filetype != 'eruby.yaml'
         echo 'This is not a Yaml file.'
         return 0
     endif
@@ -114,4 +114,4 @@ endfunction
 nmap <Leader>yml :call GetTreeStructure(".")<CR>
 nmap <Leader>ys :call SearchYamlKey()<CR>
 
-autocmd Filetype yaml autocmd CursorMoved * let b:line = line('.') | if !exists("b:prevline") || (b:prevline != b:line)  | call GetTreeStructure(".") | let b:prevline = b:line | endif
+"autocmd Filetype yaml autocmd CursorMoved * let b:line = line('.') | if !exists("b:prevline") || (b:prevline != b:line)  | call GetTreeStructure(".") | let b:prevline = b:line | endif
