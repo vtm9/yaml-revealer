@@ -114,4 +114,4 @@ endfunction
 nmap <Leader>yml :call GetTreeStructure(".")<CR>
 nmap <Leader>ys :call SearchYamlKey()<CR>
 
-"autocmd Filetype yaml autocmd CursorMoved * let b:line = line('.') | if !exists("b:prevline") || (b:prevline != b:line)  | call GetTreeStructure(".") | let b:prevline = b:line | endif
+autocmd Filetype eruby.yaml autocmd CursorMoved * if &ft ==# 'eruby.yaml' | let b:line = line('.') | if !exists("b:prevline") || (b:prevline != b:line)  | call GetTreeStructure(".") | let b:prevline = b:line | endif | endif
